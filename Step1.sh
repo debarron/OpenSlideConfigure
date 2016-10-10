@@ -42,20 +42,24 @@
 
 # Run it in cloudlab
 
+echo ">>> Updating the system"
+sudo apt-get -y update  
 
+echo ">>> Installing dependencies"
+sudo apt-get -y install libjpeg-dev libpng12-dev liblcms2-dev  libtiff-dev libpng-dev libz-dev libopenjpeg-dev libopenjpeg5 libopenjpeg5-dbg openjpeg-tools libcairo2-dev libglib2.0-dev libgtk2.0-dev libxml2-dev sqlite3 libsqlite3-dev libopenblas-base openslide-tools  pkg-config 
 
-sudo apt-get install libjpeg-dev libpng12-dev
-sudo apt-get install liblcms2-dev  libtiff-dev libpng-dev libz-dev
-sudo apt-get install libopenjpeg-dev libopenjpeg5 libopenjpeg5-dbg openjpeg-tools
-sudo apt-get install libcairo2-dev
-sudo apt-get install libglib2.0-dev
-sudo apt-get install libgtk2.0-dev
-sudo apt-get install libxml2-dev
-sudo apt-get install sqlite3 libsqlite3-dev
-sudo apt-get install libopenblas-base
-
-sudo apt-get install openslide-tools # Install openslide
-sudo apt-get install pkg-config
-
+echo ">>> Updating system variables"
 export LD_LIBRARY_PATH=/usr/lib/openblas-base/
+
+echo ">>> Cloning OpenSlide for Java"
+git clone https://github.com/openslide/openslide-java.git
+
+echo ">>> Installing OpenSlide for Java"
+cd openslide-java
+./configure
+make
+make install
+
+
+
 

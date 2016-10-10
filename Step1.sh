@@ -55,7 +55,7 @@ echo ">>> Cloning OpenSlide for Java"
 git clone https://github.com/openslide/openslide-java.git
 
 echo ">>> Installing OpenSlide for Java"
-cd openslide-java
+cd "./openslide-java"
 ./configure
 make
 make install

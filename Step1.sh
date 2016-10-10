@@ -59,9 +59,23 @@ sudo apt-get -y install libjpeg-dev libpng12-dev liblcms2-dev libtiff-dev libpng
 echo ">>> Updating system variables"
 export LD_LIBRARY_PATH=/usr/lib/openblas-base/
 
+echo ">>> Cloning OpenSlide"
+git clone https://github.com/openslide/openslide.git
+echo ">>> Installing OpenSlide"
+cd "./openslide"
+libtoolize --force
+aclocal
+autoheader
+automake --force-missing --add-missing
+autoconf
+./configure
+make
+sudo make install
+echo ">>> Installed succesfully"
+cd ..
+
 echo ">>> Cloning OpenSlide for Java"
 git clone https://github.com/openslide/openslide-java.git
-
 echo ">>> Installing OpenSlide for Java"
 cd "./openslide-java"
 libtoolize --force
@@ -69,12 +83,10 @@ aclocal
 autoheader
 automake --force-missing --add-missing
 autoconf
-
-
 ./configure
 make
-make install
-
-
+sudo make install
+echo ">>> Installed succesfully"
+cd ..
 
 

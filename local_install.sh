@@ -108,6 +108,12 @@ do
   cd ..
 done
 
+echo ">> Working on: /usr/local/lib/openslide-java/" >> $log_file
+echo ">> Creating the link: libopenslide-jni.jnilib -> libopenslide-jni.so" >> $log_file
+echo ">> Working on: /usr/local/lib/openslide-java/"
+echo ">> Creating the link: libopenslide-jni.jnilib -> libopenslide-jni.so"
+ln -s /usr/local/lib/openslide-java/libopenslide-jni.jnilib /usr/local/lib/openslide-java/libopenslide-jni.so
+
 echo ">> Configuration is done " >> $log_file 
 echo ">> Configuration is done "
 echo ">> More information in $log_file"

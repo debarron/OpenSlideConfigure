@@ -1,48 +1,22 @@
-# Notes.txt
+# author: @debarron
+# 08/12/2018
+#
+# RUN IT AS: ./local_install
+# 
+# The following script configures OpenSlide on a local machine.
+# Previous to install and configure OpenSlide, we need a set of
+# dependencies, which the script installs individually.
+# 
+# After all dependencies are installed, it downloads two repos: 
+# + https://github.com/openslide/openslide.git 
+# + https://github.com/openslide/openslide-java.git
+# 
+# You can check the LOCAL_LOG.log file and check if everythin 
+# has been taken care of correctly.
 
-
-# Clone Repo 
-# 	git clone https://github.com/openslide/openslide-java.git
-
-
-# Install Dependencies
-# 	brew install ant # Install Apache ANT
-# 	brew install openslide # Install OpenSlide
-# 	brew install autoconf
-# 	brew install automake
-# 	brew install libtool
-
-# Install Software
-# 	autoconf
-# 	If error:
-# 		> On 2015-11-16 11:33, Tammy Diprima via openslide-users wrote:
-# 		>> PROBLEM: when I run automake, I get this error:
-# 		>> configure.ac:10 [1]: error: possibly undefined macro: AM_INIT_AUTOMAKE
-# 		>>
-# 		>> SOLUTION:
-# 		>>
-# 		>> Install ant, and then:
-# 		>>
-# 		>> glibtoolize --force
-# 		>> aclocal
-# 		>> autoheader
-# 		>> automake --force-missing --add-missing
-# 		>> autoconf
-# 		>> Configure looks for jni_md.h.  Locate it and copy it to one of the		
-# 		>> locations configure is looking in.		
-# 		>> example:		
-# 		>> sudo cp		
-# 		>> /Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/include/darwin/jni_md.h		
-# 		>> /Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/include		
-# 	./configure
-# 	make
-# 	make install
-
-# 	java -jar openslide.jar
-
+# java -jar openslide.jar
 # Run it in cloudlab
 
-# NEEDS ANT
 
 
 install_log_file=$(mktemp)
@@ -108,6 +82,7 @@ do
   cd ..
 done
 
+# Everything's done, make the link to /usr/local
 echo ">> Working on: /usr/local/lib/openslide-java/" >> $log_file
 echo ">> Creating the link: libopenslide-jni.jnilib -> libopenslide-jni.so" >> $log_file
 echo ">> Working on: /usr/local/lib/openslide-java/"

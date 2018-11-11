@@ -43,6 +43,8 @@ sudo apt-get install --yes pkg-config &> /dev/null
 sudo apt-get install --yes python-software-properties &> /dev/null 
 sudo apt-get install --yes ant &> /dev/null
 
+export JAVA_HOME='/usr/lib/jvm/default-java'
+
 openslide_prefix="$HOME/openslide-dep"
 rm -Rf "$openslide_prefix"
 mkdir "$openslide_prefix"

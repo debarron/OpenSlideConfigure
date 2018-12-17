@@ -67,3 +67,6 @@ autoconf && ./configure && make && sudo make install &> /dev/null
 # 4 Fix the link issue
 sudo ln -s /usr/local/lib/openslide-java/libopenslide-jni.so /usr/local/lib/openslide-java/libopenslide-jni.jnilib 
 
+# 5 Create a reference to use in nidan-wsi-core
+echo "export OPENSLIDE_JAVA='/usr/local/lib/openslide-java'" >> ~/.bashrc
+

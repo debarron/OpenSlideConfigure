@@ -28,7 +28,7 @@ done
 echo -e ">> SCRIPT FINISHED SUCCESSFULLY 🍻 \n"
 
 echo -e "\nWAITING FOR SETUP TO FINISH..\n"
-TOTAL=$(cat $cluster_addresses | wc -l | sed 's/ //')
+TOTAL=$(cat $cluster_machines | wc -l | sed 's/ //')
 DATE=$(date| tr '[:lower:]' '[:upper:]')
 echo $DATE
 echo -e "CHECKING PIDS STATUS.."

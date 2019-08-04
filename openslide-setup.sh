@@ -42,6 +42,7 @@ sudo apt-get install --yes openslide-tools &> /dev/null
 sudo apt-get install --yes pkg-config &> /dev/null
 sudo apt-get install --yes python-software-properties &> /dev/null 
 sudo apt-get install --yes ant &> /dev/null
+sudo apt-get install python-pip --yes
 
 export JAVA_HOME='/usr/lib/jvm/default-java'
 
@@ -70,3 +71,5 @@ sudo ln -s /usr/local/lib/openslide-java/libopenslide-jni.so /usr/local/lib/open
 # 5 Create a reference to use in nidan-wsi-core
 echo "export OPENSLIDE_JAVA='/usr/local/lib/openslide-java'" >> ~/.bashrc
 
+echo "INSTALL PIP OPENSLIDE"
+pip install openslide-python

@@ -9,7 +9,8 @@ script="openslide-setup.sh"
 echo -e ">> COPYING SCRIPT 🤖\n"
 for machine in $(cat "$cluster_machines")
 do
-  scp -o "StrictHostKeyChecking no" -i "$private_key" "$script" "$username@$machine":~ &> /dev/null
+  scp -o "StrictHostKeyChecking no" -i "$private_key" "openslide-setup.sh" "$username@$machine":~ > /dev/null
+  scp -o "StrictHostKeyChecking no" -i "$private_key" "opencv-4.0.1-setup.sh" "$username@$machine":~ > /dev/null
   echo -e "\t + $machine ... OK ☕"
 done
 echo -e ">> SCRIPT FINISHED SUCCESSFULLY 🍻 \n"
@@ -20,7 +21,7 @@ bp_list=""
 echo -e ">> INSTALLING SCRIPT 🤖\n"
 for machine in $(cat "$cluster_machines")
 do
-  ssh -o "StrictHostKeyChecking no" -i "$private_key" "$username@$machine" "~/openslide-setup.sh" &> /dev/null &
+  ssh -o "StrictHostKeyChecking no" -i "$private_key" "$username@$machine" "~/openslide-setup.sh && ~/opencv-4.0.10-setup.sh" &> /dev/null &
   bp_list="$bp_list $!"
 
   echo -e "\t + $machine ... OK ☕"

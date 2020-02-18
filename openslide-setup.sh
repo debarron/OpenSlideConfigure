@@ -21,28 +21,12 @@
 # 1 Install dependencies
 sudo sed -i -e '2s/^/#/' /etc/apt/sources.list &> /dev/null
 sudo apt-get update &> /dev/null
-sudo apt-get install --yes libjpeg-dev &> /dev/null
-sudo apt-get install --yes libpng12-dev &> /dev/null
-sudo apt-get install --yes liblcms2-dev &> /dev/null
-sudo apt-get install --yes libtiff-dev &> /dev/null
-sudo apt-get install --yes libpng-dev &> /dev/null
-sudo apt-get install --yes libz-dev &> /dev/null
-sudo apt-get install --yes libopenjpeg-dev &> /dev/null
-sudo apt-get install --yes libopenjpeg5 &> /dev/null
-sudo apt-get install --yes libopenjpeg5-dbg &> /dev/null
-sudo apt-get install --yes openjpeg-tools &> /dev/null
-sudo apt-get install --yes libcairo2-dev &> /dev/null
-sudo apt-get install --yes libglib2.0-dev &> /dev/null
-sudo apt-get install --yes libgtk2.0-dev &> /dev/null
-sudo apt-get install --yes libxml2-dev &> /dev/null
-sudo apt-get install --yes sqlite3 &> /dev/null
-sudo apt-get install --yes libsqlite3-dev &> /dev/null
-sudo apt-get install --yes libopenblas-base &> /dev/null
-sudo apt-get install --yes openslide-tools &> /dev/null
-sudo apt-get install --yes pkg-config &> /dev/null
-sudo apt-get install --yes python-software-properties &> /dev/null 
-sudo apt-get install --yes ant &> /dev/null
-sudo apt-get install python-pip --yes
+sudo apt-get install --yes libjpeg-dev \
+libpng12-dev liblcms2-dev libtiff-dev libpng-dev libz-dev \
+libopenjpeg-dev libopenjpeg5 libopenjpeg5-dbg openjpeg-tools \
+libcairo2-dev libglib2.0-dev libgtk2.0-dev libxml2-dev sqlite3 \ 
+libsqlite3-dev libopenblas-base openslide-tools pkg-config \
+python-software-properties ant python-pip 
 
 export JAVA_HOME='/usr/lib/jvm/default-java'
 
@@ -53,17 +37,17 @@ mkdir "$openslide_prefix"
 # 2 Install openslide
 git clone "https://github.com/openslide/openslide.git" "$openslide_prefix/openslide"
 cd "$openslide_prefix/openslide"
-libtoolize --force && aclocal && autoheader &> /dev/null
-automake --force-missing --add-missing &> /dev/null 
-autoconf && ./configure && make && sudo make install &> /dev/null
+libtoolize --force && aclocal && autoheader > /dev/null
+automake --force-missing --add-missing > /dev/null 
+autoconf && ./configure && make && sudo make install > /dev/null
 
 
 # 3 Install openslide-java
 git clone "https://github.com/openslide/openslide-java.git" "$openslide_prefix/openslide-java"
 cd "$openslide_prefix/openslide-java"
-libtoolize --force && aclocal && autoheader &> /dev/null
-automake --force-missing --add-missing &> /dev/null 
-autoconf && ./configure && make && sudo make install &> /dev/null
+libtoolize --force && aclocal && autoheader > /dev/null
+automake --force-missing --add-missing > /dev/null 
+autoconf && ./configure && make && sudo make install > /dev/null
 
 # 4 Fix the link issue
 sudo ln -s /usr/local/lib/openslide-java/libopenslide-jni.so /usr/local/lib/openslide-java/libopenslide-jni.jnilib 

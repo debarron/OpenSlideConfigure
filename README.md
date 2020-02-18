@@ -22,3 +22,5 @@ If a local install is needed, run:
 
 Big shout out to <a href="https://github.com/anask">@anask</a> and <a href="https://github.com/hastimal">@hastimal</a> for their support and guidance.
 
+Special thanks to <a href="https://www.learnopencv.com/install-opencv-4-on-ubuntu-18-04/">Learn OpenCV Tutorial</a> for their extensive tutorial!
+

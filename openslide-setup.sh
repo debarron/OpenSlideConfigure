@@ -24,7 +24,7 @@ sudo apt-get update &> /dev/null
 sudo apt-get install --yes libjpeg-dev \
 libpng12-dev liblcms2-dev libtiff-dev libpng-dev libz-dev \
 libopenjpeg-dev libopenjpeg5 libopenjpeg5-dbg openjpeg-tools \
-libcairo2-dev libglib2.0-dev libgtk2.0-dev libxml2-dev sqlite3 \ 
+libcairo2-dev libglib2.0-dev libgtk2.0-dev libxml2-dev sqlite3 \
 libsqlite3-dev libopenblas-base openslide-tools pkg-config \
 python-software-properties ant python-pip 
 

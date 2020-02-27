@@ -19,8 +19,8 @@
 
 
 # 1 Install dependencies
-sudo sed -i -e '2s/^/#/' /etc/apt/sources.list &> /dev/null
-sudo apt-get update &> /dev/null
+sudo sed -i -e '2s/^/#/' /etc/apt/sources.list > /dev/null
+sudo apt-get update > /dev/null
 sudo apt-get install --yes libjpeg-dev \
 libpng12-dev liblcms2-dev libtiff-dev libpng-dev libz-dev \
 libopenjpeg-dev libopenjpeg5 libopenjpeg5-dbg openjpeg-tools \
